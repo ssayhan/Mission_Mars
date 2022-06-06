@@ -28,7 +28,7 @@ def scrape_all():
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
         "last_modified": dt.datetime.now(),
-        "hemispheres": hemispheres(browser)     
+        "hemispheres": hemispheres(browser)  
     }
 
     return scrape_results
@@ -139,41 +139,24 @@ def hemispheres(browser):
         browser.find_by_css('a.product-item img')[i].click()
         # Begin Scraping
         # look insede to full image url
-        element = browser.find_link_by_text('Sample').first.click()
-        # print(element)
-        # print(browser.url)
-        #img_link= element('herf').get('src')
+        element = browser.find_link_by_text('Sample').first
+        print(element)
+        print(browser.url)
+        img_link= element['href']
     
         #look insde to h2 tag for text
-        #img_title = browser.find_by_css("h2.title").text
+        img_title = browser.find_by_css("h2.title").text
     
-        #hemispheres["img_link"] = hemisphere_image_urls
-        # print(img_url)
+        hemispheres["img_link"] = img_link
+        print(img_link)
     
-        #hemispheres["img_title"] = img_title
-        #print(title)
-        hemisphere_data = scrape_hemisphere(browser.html)
+        hemispheres["img_title"] = img_title
+        print(img_title)
+        
         hemisphere_image_urls.append(hemispheres)
         browser.back()    
     
     return  hemisphere_image_urls
-
-def scrape_hemisphere(html_text):
-    # parse html text
-    hemisphere_soup = soup(html_text, "html.parser")
-    # adding try/except for error handling
-    try:
-        title_elem = hemisphere_soup.find("h2", class_="title").get_text()
-        sample_elem = hemisphere_soup.find("a", text="Sample").get("href")
-    except AttributeError:
-        # Image error will return None, for better front-end handling
-        title_elem = None
-        sample_elem = None
-    hemispheres = {
-        "title": title_elem,
-        "img_url": sample_elem
-    }
-    return hemispheres
     
 if __name__ == "__main__":
     print(scrape_all ())
