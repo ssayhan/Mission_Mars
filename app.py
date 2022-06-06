@@ -25,8 +25,8 @@ def index():
 def scrape():
     mars= mongo.db.mars
     mars_data = Mars_scraping.scrape_all()
-    mars.update_one({}, {"$set":mars_data}, upsert = True)
-    # mars.update({}, {"$set":mars_data}, upsert=True)
+    # mars.update{}, mars_data, upsert = True)
+    mars.update_one({}, {"$set":mars_data}, upsert=True)
     return redirect('/', code=302)
 
 # Run the code
