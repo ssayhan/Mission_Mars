@@ -5,7 +5,8 @@ web-scrabin with HTML and CSS
 
 In this project we are scrabing form NASA `s website in order to retrieve information from latest articles, pictures, Mars facts and images of Mars Hemispheres
 
-<img width="1423" alt="Screen Shot 2022-06-05 at 11 06 25 PM" src="https://user-images.githubusercontent.com/77603561/172098498-49a077a3-fda4-4fa0-a4ac-8d17766d0e58.png">
+<img width="1440" alt="screen_shot_2022-06-05_at_11 06 25_pm" src="https://user-images.githubusercontent.com/77603561/172102293-bfa3c682-9546-4c3a-a089-ef8e82e9678e.png">
+
 
 For this project we will use following tools and packages:
  - Beautiful Soup
